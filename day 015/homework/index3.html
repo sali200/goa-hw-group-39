@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+  <meta charset="UTF-8">
+  <title>Drop-down მენიუ</title>
+  <style>
+    nav select { font-size: 16px; padding: 5px; margin-top: 10px; }
+  </style>
+</head>
+<body>
+  <h1>მთავარი გვერდი</h1>
+  <nav>
+    <label for="menu">აირჩიე განყოფილება:</label>
+    <select id="menu" onchange="location = this.value;">
+      <option value="#">-- აირჩიე --</option>
+      <option value="#home">მთავარი</option>
+      <option value="#about">ჩვენს შესახებ</option>
+      <option value="#contact">კონტაქტი</option>
+    </select>
+  </nav>
+
+  <section id="home">
+    <h2>მთავარი</h2>
+    <p>მოგესალმებით ჩვენს საიტზე!</p>
+  </section>
+
+  <section id="about">
+    <h2>ჩვენს შესახებ</h2>
+    <p>ჩვენ ვართ გუნდი, რომელიც ქმნის ინოვაციურ ვებსაიტებს.</p>
+  </section>
+
+  <section id="contact">
+    <h2>კონტაქტი</h2>
+    <p>დაგვიკავშირდით: info@example.com</p>
+  </section>
+</body>
+</html>
