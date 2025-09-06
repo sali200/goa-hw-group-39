@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+  <meta charset="UTF-8">
+  <title>Equilibrium Card</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: hsl(217, 54%, 11%);
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .card {
+      background-color: hsl(216, 50%, 16%);
+      border-radius: 15px;
+      padding: 20px;
+      width: 300px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+      color: hsl(0, 0%, 100%);
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .card img.artwork {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .card h2 {
+      font-size: 18px;
+      margin: 0;
+      color: hsl(0, 0%, 100%);
+    }
+
+    .card p.description {
+      font-size: 14px;
+      color: hsl(215, 51%, 70%);
+    }
+
+    .card .info {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
+      color: hsl(178, 100%, 50%);
+    }
+
+    .creator {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      color: hsl(215, 51%, 70%);
+    }
+
+    .creator img {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      border: 1px solid white;
+    }
+
+    .creator span {
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <img class="artwork" src="equilibrium.jpg" alt="Equilibrium #3429">
+    <h2>Equilibrium #3429</h2>
+    <p class="description">Our Equilibrium collection promotes balance and calm.</p>
+    <div class="info">
+      <span>0.041 ETH</span>
+    </div>
+    <div class="creator">
+      <img src="jules.jpg" alt="Jules Wyvern">
+      <p>Creation of <span>Jules Wyvern</span></p>
+    </div>
+  </div>
+
+</body>
+</html>

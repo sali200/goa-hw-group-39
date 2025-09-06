@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+  <meta charset="UTF-8">
+  <title>CSS ანიმაციები</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+      background: #f0f0f0;
+      font-family: sans-serif;
+    }
+
+    .color-change {
+      width: 200px;
+      height: 200px;
+      background-color: red;
+      animation: bgChange 2s forwards;
+    }
+
+    @keyframes bgChange {
+      to {
+        background-color: blue;
+      }
+    }
+
+    .ball {
+      width: 100px;
+      height: 100px;
+      background-color: blue;
+      border-radius: 50%;
+      position: relative;
+      animation: bounce 1s infinite;
+    }
+
+    @keyframes bounce {
+      0%   { top: 0; }
+      50%  { top: -100px; }
+      100% { top: 0; }
+    }
+
+    .rotate-box {
+      width: 200px;
+      height: 200px;
+      background-color: orange;
+      animation: rotateBox 2s linear infinite;
+    }
+
+    @keyframes rotateBox {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .text-animate {
+      font-size: 24px;
+      color: black;
+      animation: textColor 3s infinite alternate;
+    }
+
+    @keyframes textColor {
+      to {
+        color: crimson;
+      }
+    }
+
+
+    .resize-box {
+      width: 200px;
+      height: 200px;
+      background-color: green;
+      animation: resize 3s infinite;
+    }
+
+    @keyframes resize {
+      0%   { transform: scale(1); }
+      50%  { transform: scale(1.5); }
+      100% { transform: scale(0.5); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="color-change"></div>
+  <div class="ball"></div>
+  <div class="rotate-box"></div>
+  <div class="text-animate">ეს ტექსტი იცვლის ფერს</div>
+  <div class="resize-box"></div>
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+  <meta charset="UTF-8">
+  <title>document</title>
+</head>
+<body>
+
+  <h2>ჩემი ამოცანები</h2>
+  <input type="text" id="taskInput" placeholder="შეიყვანე ამოცანა">
+  <button onclick="addTask()">დამატება</button>
+
+  <ul id="taskList"></ul>
+
+  <script>
+    let tasks = [];
+
+    window.onload = function() {
+      const storedTasks = localStorage.getItem("tasks");
+      if (storedTasks) {
+        tasks = JSON.parse(storedTasks); 
+        renderTasks(); 
+      }
+    };
+
+    function addTask() {
+      const input = document.getElementById("taskInput");
+      const taskText = input.value.trim();
+
+      if (taskText !== "") {
+        tasks.push(taskText); 
+        localStorage.setItem("tasks", JSON.stringify(tasks)); 
+        renderTasks(); 
+        input.value = ""; 
+      }
+    }
+
+    function renderTasks() {
+      const ul = document.getElementById("taskList");
+      ul.innerHTML = ""; 
+
+      tasks.forEach((task, index) => {
+        const li = document.createElement("li");
+        li.textContent = task;
+        ul.appendChild(li);
+      });
+    }
+  </script>
+
+</body>
+</html>

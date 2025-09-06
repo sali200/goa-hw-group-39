@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+  <meta charset="UTF-8">
+  <title>Flexbox მაგალითები</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 20px;
+    }
+
+    .section {
+      margin-bottom: 40px;
+    }
+
+    .flex-container, .column-container, .row-container, .wrap-container, .grow-container, .shrink-container {
+      display: flex;
+      gap: 10px;
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+    }
+
+    .column-container {
+      flex-direction: column;
+    }
+
+    .row-container {
+      flex-direction: row; 
+    }
+
+    .wrap-container {
+      flex-wrap: wrap; 
+      width: 200px;
+    }
+
+    .wrap-container div {
+      width: 100px;
+      background-color: #f0f0f0;
+      text-align: center;
+    }
+
+    .grow-container p {
+      flex-grow: 1; 
+      border: 1px dashed #999;
+      padding: 5px;
+    }
+
+    .shrink-container {
+      width: 300px;
+    }
+
+    .shrink-container p {
+      flex-shrink: 1;
+      width: 200px;
+      border: 1px dotted #555;
+      padding: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>💡 Flexbox მაგალითები</h1>
+
+  <div class="section">
+    <h2>1. display: flex;</h2>
+    <div class="flex-container">
+      <p>პარაგრაფი 1</p>
+      <p>პარაგრაფი 2</p>
+    </div>
+    <div class="flex-container">
+      <p>პარაგრაფი 3</p>
+      <p>პარაგრაფი 4</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>2. flex-direction: column;</h2>
+    <div class="column-container">
+      <div>ელემენტი A</div>
+      <div>ელემენტი B</div>
+    </div>
+    <div class="column-container">
+      <div>ელემენტი C</div>
+      <div>ელემენტი D</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>3. flex-direction: row;</h2>
+    <div class="row-container">
+      <div>ელემენტი 1</div>
+      <div>ელემენტი 2</div>
+    </div>
+    <div class="row-container">
+      <div>ელემენტი 3</div>
+      <div>ელემენტი 4</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>4. flex-wrap: wrap;</h2>
+    <div class="wrap-container">
+      <div>1</div>
+      <div>2</div>
+      <div>3</div>
+    </div>
+    <div class="wrap-container">
+      <div>4</div>
+      <div>5</div>
+      <div>6</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>5. flex-grow;</h2>
+    <div class="grow-container">
+      <p>გაფართოებული 1</p>
+      <p>გაფართოებული 2</p>
+    </div>
+    <div class="grow-container">
+      <p>გაფართოებული 3</p>
+      <p>გაფართოებული 4</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>6. flex-shrink;</h2>
+    <div class="shrink-container">
+      <p>შეკუმშვადი 1</p>
+      <p>შეკუმშვადი 2</p>
+    </div>
+    <div class="shrink-container">
+      <p>შეკუმშვადი 3</p>
+      <p>შეკუმშვადი 4</p>
+    </div>
+  </div>
+
+</body>
+</html>
