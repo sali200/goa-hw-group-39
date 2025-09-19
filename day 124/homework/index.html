@@ -1,54 +1,40 @@
 <!DOCTYPE html>
-<html lang="ka">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>ფორმა</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <form id="userForm">
-    <label for="name">სახელი:</label>
-    <input type="text" id="name" name="name" required><br><br>
+     <div class="sec">
+        <form id="f">
+            <input type="text" id="n" placeholder="სახელი" required>
+            <input type="number" id="a" placeholder="ასაკი" required>
+            <button>დადასტურება</button>
+        </form>
+    </div>
 
-    <label for="age">ასაკი:</label>
-    <input type="number" id="age" name="age" required><br><br>
+    <div class="sec">
+        <input type="password" id="p" placeholder="პაროლი">
+        <label><input type="checkbox" id="s"> ვაჩვენო პაროლი</label>
+        <button id="l">Login</button>
+    </div>
 
-    <button type="submit">დადასტურება</button>
-  </form>
+    <div class="sec">
+        <span id="c">0</span><br>
+        <button id="plus">+1</button>
+        <button id="minus">-1</button>
+        <button id="r">Reset</button>
+    </div>
 
-  <form id="loginForm">
-    <label for="password">პაროლი:</label>
-    <input type="password" id="password" name="password" required><br><br>
+    <div class="sec">
+        <div id="box"></div>
+        <button class="col" data-color="red">Red</button>
+        <button class="col" data-color="green">Green</button>
+        <button class="col" data-color="blue">Blue</button>
+    </div>
 
-    <input type="checkbox" id="showPassword">
-    <label for="showPassword">ვაჩვენო პაროლი</label><br><br>
-
-    <button type="submit">Login</button>
-  </form>
-
-  <script>
-    const form = document.getElementById('userForm');
-
-    form.addEventListener('submit', function(event) {
-      event.preventDefault(); 
-
-      const name = document.getElementById('name').value;
-      const age = document.getElementById('age').value;
-
-      console.log(`გამარჯობა ${name}, შენ ხარ ${age} წლის`);
-    });
-        const passwordInput = document.getElementById('password');
-    const showPasswordCheckbox = document.getElementById('showPassword');
-    const loginForm = document.getElementById('loginForm');
-
-    showPasswordCheckbox.addEventListener('change', function() {
-      passwordInput.type = this.checked ? 'text' : 'password';
-    });
-
-    loginForm.addEventListener('submit', function(event) {
-      event.preventDefault(); 
-      const password = passwordInput.value;
-      console.log(`შეყვანილი პაროლია: ${password}`);
-    });
-  </script>
+    <script src="script.js"></script>
 </body>
 </html>
