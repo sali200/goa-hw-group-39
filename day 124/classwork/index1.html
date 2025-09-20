@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+  <meta charset="UTF-8">
+  <title>სურათების სლაიდერი</title>
+  <style>
+    #slider {
+      width: 400px;
+      height: 300px;
+      object-fit: cover;
+      border: 2px solid #333;
+      margin-bottom: 10px;
+    }
+    button {
+      padding: 10px 20px;
+      margin: 5px;
+      font-size: 1em;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <img id="slider" src="" alt="სურათი">
+  <br>
+  <button id="prev">Prev</button>
+  <button id="next">Next</button>
+
+  <script>
+    const images = [
+      "https://picsum.photos/id/1015/400/300",
+      "https://picsum.photos/id/1025/400/300",
+      "https://picsum.photos/id/1035/400/300",
+      "https://picsum.photos/id/1045/400/300",
+      "https://picsum.photos/id/1055/400/300"
+    ];
+
+    let currentIndex = 0;
+
+    const slider = document.getElementById('slider');
+    const prevBtn = document.getElementById('prev');
+    const nextBtn = document.getElementById('next');
+
+    slider.src = images[currentIndex];
+
+    prevBtn.addEventListener('click', () => {
+      if (currentIndex > 0) {
+        currentIndex--;
+        slider.src = images[currentIndex];
+      }
+    });
+
+    nextBtn.addEventListener('click', () => {
+      if (currentIndex < images.length - 1) {
+        currentIndex++;
+        slider.src = images[currentIndex];
+      }
+    });
+  </script>
+
+</body>
+</html>

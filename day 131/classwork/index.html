@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Document</title>
+  <style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Helvetica Neue', sans-serif;
+  background-color: #121212;
+  color: white;
+  line-height: 1.6;
+  padding: 2rem;
+}
+
+header nav ul {
+  display: flex;
+  justify-content: flex-start;
+  gap: 1.5rem;
+  list-style: none;
+  padding: 1rem 0;
+}
+
+nav li {
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  background-color: #1e1e1e;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+nav li:hover {
+  background-color: #333;
+}
+nav .active {
+  background-color: #ccc;
+  color: black;
+}
+nav .contact {
+  background-color: #fff;
+  color: black;
+}
+
+.hero {
+  margin-top: 4rem;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 300;
+  margin-bottom: 2rem;
+}
+
+.hero h1 span {
+  font-weight: bold;
+}
+
+.project-slider {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  padding: 1rem 0;
+}
+
+.project-tile {
+  min-width: 150px;
+  height: 150px;
+  background-color: #222;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  text-align: center;
+  padding: 1rem;
+  cursor: pointer;
+
+}
+
+
+
+.intro {
+  margin-top: 4rem;
+  max-width: 600px;
+}
+.intro h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li class="active">Love + Money</li>
+        <li>Work</li>
+        <li>ToolKit™</li>
+        <li>Agency</li>
+        <li class="contact">Contact</li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>Love + Money is<br><span>Always Beta™</span></h1>
+      <div class="project-slider">
+        <div class="project-tile">Make Work Flow</div>
+        <div class="project-tile">alt</div>
+        <div class="project-tile">DIRTT</div>
+        <div class="project-tile">Fluff Co</div>
+        <div class="project-tile">Cozy—fied</div>
+        <div class="project-tile">Polaroid</div>
+      </div>
+    </section>
+
+    <section class="intro">
+      <h2>Brand + Digital.<br>Always Beta Together</h2>
+      <p>
+        For over a decade Love and Money has been at the intersection of brand and digital.
+        We’ve spent our time understanding how to design brands that can thrive in...
+      </p>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+  <meta charset="UTF-8">
+  <title>document</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 40px;
+      font-family: sans-serif;
+      background-color: #f0f0f0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+
+    .box {
+      width: 150px;
+      height: 200px;
+      background-color: #4a90e2;
+      border-radius: 10px;
+      transition: all 0.5s ease;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: bold;
+    }
+
+    .combo-box {
+      background-color: #ff5722;
+      transform-origin: center;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="box" onclick="moveLeft(this)">მარცხნივ</div>
+
+  <div class="box" onclick="scaleToggle(this)">ზომა</div>
+
+  <div class="box" onclick="moveDiagonal(this)"> დიაგონალურად</div>
+
+  <div class="box" onclick="rotateCounter(this)"> დატრიალება</div>
+
+  <div class="box combo-box" onclick="comboAction(this)">all</div>
+
+  <script>
+    function moveLeft(el) {
+      el.style.transform = "translateX(-50px)";
+    }
+
+    let scaled = false;
+    function scaleToggle(el) {
+      if (!scaled) {
+        el.style.transform = "scale(1.5)";
+      } else {
+        el.style.transform = "scale(0.5)";
+      }
+      scaled = !scaled;
+    }
+
+    function moveDiagonal(el) {
+      el.style.transform = "translate(50px, 50px)";
+    }
+
+    function rotateCounter(el) {
+      el.style.transform = "rotate(-90deg)";
+    }
+
+    function comboAction(el) {
+      el.style.transform = "translateX(50px) rotate(25deg) scale(4)";
+    }
+  </script>
+
+</body>
+</html>

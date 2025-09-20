@@ -1,78 +1,42 @@
-const taskInput = document.getElementById("taskInput");
-const addTaskBtn = document.getElementById("addTask");
-const taskList = document.getElementById("taskList");
+// JavaScript არის ერთთრედიანი ენა — ანუ მას აქვს მხოლოდ ერთი მთავარი ნაკადი (thread),
+// რომელიც ასრულებს კოდს. ეს ნიშნავს, რომ ყველა ოპერაცია (მაგ. ფუნქციის გამოძახება, ცვლადების შეცვლა)
+// ხდება თანმიმდევრულად, ერთ ხაზზე. მაგრამ...
 
-function renderTasks() {
-    taskList.innerHTML = "";
-    const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
-    tasks.forEach(task => {
-        const li = document.createElement("li");
-        li.textContent = task;
-        taskList.appendChild(li);
-    });
+// ...როდესაც საქმე ეხება ასინქრონულ ოპერაციებს (მაგ. სერვერზე მოთხოვნის გაგზავნა),
+// JavaScript იყენებს Event Loop-ს და Callback Queue-ს, რათა არ დაბლოკოს მთავარი ნაკადი.
+
+// Promise არის ობიექტი, რომელიც წარმოადგენს ასინქრონულ ოპერაციას.
+// ის გვპირდება, რომ რაღაც მომენტში ოპერაცია დასრულდება წარმატებით (resolve) ან შეცდომით (reject).
+
+function getDataFromServer() {
+  return new Promise((resolve, reject) => {
+        setTimeout(() => {
+      const success = true; 
+      if (success) {
+        resolve("მონაცემები მიღებულია!");
+      } else {
+        reject("შეცდომა მოხდა!");
+      }
+    }, 2000); 
+  });
 }
 
-addTaskBtn.addEventListener("click", () => {
-    const val = taskInput.value.trim();
-    if (!val) return;
-    const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
-    tasks.push(val);
-    localStorage.setItem("tasks", JSON.stringify(tasks));
-    taskInput.value = "";
-    renderTasks();
-});
+// async ფუნქცია არის სინტაქსური შაქარი (syntactic sugar) Promise-ებისთვის.
+// ის გვაძლევს საშუალებას, რომ დავწეროთ ასინქრონული კოდი ისე, თითქოს სინქრონულია.
 
-renderTasks();
-
-const toggleThemeBtn = document.getElementById("toggleTheme");
-function applyTheme(theme) {
-    document.body.classList.remove("light", "dark");
-    document.body.classList.add(theme);
-    localStorage.setItem("theme", theme);
-}
-toggleThemeBtn.addEventListener("click", () => {
-    const current = localStorage.getItem("theme") || "light";
-    const next = current === "light" ? "dark" : "light";
-    applyTheme(next);
-});
-applyTheme(localStorage.getItem("theme") || "light");
-
-
-
-const visitSpan = document.getElementById("visitCount");
-let count = Number(localStorage.getItem("visitCount") || 0);
-count++;
-localStorage.setItem("visitCount", count);
-visitSpan.textContent = count;
-
-document.getElementById("resetVisits").addEventListener("click", () => {
-    localStorage.setItem("visitCount", 0);
-    visitSpan.textContent = 0;
-});
-
-
-
-const colorSelect = document.getElementById("colorSelect");
-const preview = document.getElementById("colorPreview");
-const clearPrefBtn = document.getElementById("clearPreference");
-
-function applyColor(color) {
-    preview.style.background = color || "transparent";
-    if (color) localStorage.setItem("preferredColor", color);
+async function fetchData() {
+  try {
+    console.log("მონაცემების მიღება დაიწყო...");
+    const result = await getDataFromServer(); 
+    console.log("შედეგი:", result);
+  } catch (error) {
+    console.error("შეცდომა:", error);
+  }
 }
 
-colorSelect.addEventListener("change", () => {
-    applyColor(colorSelect.value);
-});
+fetchData(); 
 
-clearPrefBtn.addEventListener("click", () => {
-    localStorage.removeItem("preferredColor");
-    colorSelect.value = "";
-    preview.style.background = "transparent";
-});
 
-const savedColor = localStorage.getItem("preferredColor");
-if (savedColor) {
-    colorSelect.value = savedColor;
-    applyColor(savedColor);
-}
+
+
+

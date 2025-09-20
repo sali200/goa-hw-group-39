@@ -1,9 +1,0 @@
-.wrap {
-    display: flex;
-    flex-wrap: wrap;
-}
-.wrap p {
-    background-color: lightgreen;
-    padding: 10px;
-    border: 1px solid green;
-}

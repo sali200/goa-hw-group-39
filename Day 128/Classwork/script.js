@@ -1,33 +1,28 @@
-const playerChoice = document.getElementById("playerChoice");
-const compChoiceP = document.getElementById("compChoice");
-const resultP = document.getElementById("result");
-const pScoreP = document.getElementById("pScore");
-const compScoreP = document.getElementById("compScore");
+    let userScore = 0;
+    let computerScore = 0;
 
-const choices = ["Rock", "Paper", "Scissors"];
-let playerScore = 0;
-let computerScore = 0;
+    function playGame(userChoice) {
+      const choices = ['rock', 'paper', 'scissors'];
+      const computerChoice = choices[Math.floor(Math.random() * 3)];
 
-playerChoice.addEventListener("click", (e) => {
-    if (e.target.tagName !== "BUTTON") return;
-    const choice = e.target.textContent;
-    const compChoice = choices[Math.floor(Math.random() * 3)];
-    compChoiceP.textContent = `Computer choice: ${compChoice}`;
 
-    if (compChoice === choice) {
-        resultP.textContent = "Draw!";
-    } else if (
-        (compChoice === "Rock" && choice === "Scissors") ||
-        (compChoice === "Scissors" && choice === "Paper") ||
-        (compChoice === "Paper" && choice === "Rock")
-    ) {
+      let resultText = '';
+      if (userChoice === computerChoice) {
+        resultText = 'ფრე!';
+      } else if (
+        (userChoice === 'rock' && computerChoice === 'scissors') ||
+        (userChoice === 'paper' && computerChoice === 'rock') ||
+        (userChoice === 'scissors' && computerChoice === 'paper')
+      ) {
+        userScore++;
+        resultText = 'შენ მოიგე!';
+      } else {
         computerScore++;
-        resultP.textContent = "Computer win!";
-        compScoreP.textContent = `Computer score: ${computerScore}`;
-    } else {
-        playerScore++;
-        resultP.textContent = "You win!";
-        pScoreP.textContent = `Player score: ${playerScore}`;
-    }
-});
+        resultText = 'კომპიუტერმა მოიგო!';
+      }
 
+      document.getElementById('user-score').textContent = userScore;
+      document.getElementById('computer-score').textContent = computerScore;
+      document.getElementById('result').textContent = resultText;
+      document.getElementById('status').textContent = `შენ აირჩიე: ${userChoice}, კომპიუტერმა: ${computerChoice}`;
+    }

@@ -1,0 +1,94 @@
+/* Reset & Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Helvetica Neue', sans-serif;
+  background-color: #121212;
+  color: white;
+  line-height: 1.6;
+  padding: 2rem;
+}
+
+/* Nav */
+header nav ul {
+  display: flex;
+  justify-content: flex-start;
+  gap: 1.5rem;
+  list-style: none;
+  padding: 1rem 0;
+}
+
+nav li {
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  background-color: #1e1e1e;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+nav li:hover {
+  background-color: #333;
+}
+nav .active {
+  background-color: #ccc;
+  color: black;
+}
+nav .contact {
+  background-color: #fff;
+  color: black;
+}
+
+/* Hero Section */
+.hero {
+  margin-top: 4rem;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 300;
+  margin-bottom: 2rem;
+}
+
+.hero h1 span {
+  font-weight: bold;
+}
+
+/* Project Slider (Static for now) */
+.project-slider {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  padding: 1rem 0;
+}
+
+.project-tile {
+  min-width: 150px;
+  height: 150px;
+  background-color: #222;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  text-align: center;
+  padding: 1rem;
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.project-tile:hover {
+  transform: scale(1.05);
+}
+
+/* Intro */
+.intro {
+  margin-top: 4rem;
+  max-width: 600px;
+}
+.intro h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}

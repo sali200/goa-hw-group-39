@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+  <meta charset="UTF-8">
+  <title>ფორმა და სტილები</title>
+  <style>
+    input[type="text"] {
+      border: 2px solid #4CAF50;
+      padding: 8px;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+
+    input[type="email"] {
+      border: 2px dashed #2196F3;
+      padding: 8px;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+
+    input[type="password"] {
+      border: 2px dotted #FF9800;
+      padding: 8px;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+
+    input[type="number"] {
+      border: 2px solid #9C27B0;
+      padding: 8px;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+
+    input[type="submit"] {
+      background-color: #f44336;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .red-box {
+      width: 200px;
+      height: 200px;
+      background-color: red;
+      margin-top: 50px;
+
+      border-top-left-radius: 10px;
+      border-top-right-radius: 30px;
+      border-bottom-right-radius: 50px;
+      border-bottom-left-radius: 70px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>რეგისტრაციის ფორმა</h2>
+  <form>
+    <label for="name">სახელი:</label><br>
+    <input type="text" id="name" name="name"><br><br>
+
+    <label for="email">ელ.ფოსტა:</label><br>
+    <input type="email" id="email" name="email"><br><br>
+
+    <input type="password" name="password" placeholder="შეიყვანეთ პაროლი"><br><br>
+
+    <input type="number" name="age" placeholder="ასაკი"><br><br>
+
+    <input type="submit" value="გაგზავნა">
+  </form>
+
+  <div class="red-box"></div>
+
+</body>
+</html>

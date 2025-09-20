@@ -1,27 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ka">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>Register</title>
 </head>
 <body>
-     <div class="card">
-    <h1 id="pageTitle">Register</h1>
 
-    <form id="registerForm">
-      <label for="username">სახელი</label>
-      <input id="username" name="username" type="text" placeholder="შეიყვანეთ სახელი" autocomplete="off" required />
+  <h1 id="title">Register</h1>
 
-      <label for="password">პაროლი</label>
-      <input id="password" name="password" type="password" placeholder="შეიყვანეთ პაროლი" required />
+  <form id="registerForm">
+    <input type="text" id="username" placeholder="სახელი" required><br>
+    <input type="password" id="password" placeholder="პაროლი" required><br>
+    <button type="button" id="submitBtn">დადასტურება</button>
+  </form>
 
-      <button id="confirmBtn" type="submit">დადასტურება</button>
-    </form>
-  </div>
+  <script>
+    const form = document.getElementById('registerForm');
+    const usernameInput = document.getElementById('username');
+    const passwordInput = document.getElementById('password');
+    const submitBtn = document.getElementById('submitBtn');
+    const title = document.getElementById('title');
 
-  <script src="script.js"></script>
+    submitBtn.addEventListener('click', () => {
+      const username = usernameInput.value;
+
+
+      title.textContent = `Welcome ${username}`;
+    });
+  </script>
 
 </body>
 </html>

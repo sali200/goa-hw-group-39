@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GitHub User Search</title>
+  <style>
+    body {
+      font-family: cursive;
+      background: linear-gradient(to right, #fafbfc, #d9eafc);
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+    header {
+      background: #a0d0ff;
+      color: white;
+      padding: 20px;
+    }
+    h1 {
+      margin: 0;
+    }
+    .search-box {
+      margin: 30px auto;
+    }
+    input {
+      padding: 10px;
+      font-size: 16px;
+      width: 250px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin-left: 10px;
+      border: none;
+      background: #2ea44f;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #22863a;
+    }
+    .user-card {
+      margin-top: 30px;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .user-card img {
+      width: 120px;
+      border-radius: 50%;
+    }
+    .user-card h2 {
+      margin: 10px 0;
+    }
+    .user-card p {
+      color: #555;
+    }
+    .user-card a {
+      color: #0366d6;
+      text-decoration: none;
+    }
+    .error {
+      color: red;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>GitHub User Search</h1>
+  </header>
+
+  <div class="search-box">
+    <input type="text" id="username" placeholder="შეიყვანე GitHub მომხმარებელი">
+    <button onclick="searchUser()">ძებნა</button>
+  </div>
+
+  <div id="output"></div>
+
+  <script>
+    async function searchUser() {
+      const username = document.getElementById('username').value.trim();
+      const output = document.getElementById('output');
+      output.innerHTML = '';
+
+      if (!username) {
+        output.innerHTML = '<div class="error">გთხოვ შეიყვანე მომხმარებლის სახელი</div>';
+        return;
+      }
+
+      try {
+        const response = await fetch(`https://api.github.com/users/${username}`);
+        if (response =="") {
+          throw new Error('მომხმარებელი ვერ მოიძებნა');
+        }
+
+        const user = await response.json();
+
+        output.innerHTML = `
+          <div class="user-card">
+            <img src="${user.avatar_url}" alt="${user.login}">
+            <h2>${user.login}</h2>
+            <p>${user.bio ? user.bio : 'ბიო არ არის მითითებული'}</p>
+            <p>საჯარო რეპოზიტორიები: ${user.public_repos}</p>
+            <p><a href="${user.html_url}" target="_blank">ნახე GitHub პროფილი</a></p>
+          </div>
+        `;
+      } catch (error) {
+        output.innerHTML = `<div class="error">${error.message}</div>`;
+      }
+    }
+  </script>
+
+</body>
+</html>
